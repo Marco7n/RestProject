@@ -1,0 +1,136 @@
+{
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5080"
+    },
+    {
+      "key": "livroId",
+      "value": "1"
+    },
+    {
+      "key": "emprestimoId",
+      "value": "1"
+    }
+  ],
+  "info": {
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "name": "Biblioteca API"
+  },
+  "item": [
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/livros",
+        "header": [],
+        "method": "GET"
+      },
+      "name": "Listar livros"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/livros/{{livroId}}",
+        "header": [],
+        "method": "GET"
+      },
+      "name": "Buscar livro"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/livros",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\"titulo\":\"Dom Casmurro\",\"autor\":\"Machado de Assis\",\"ano\":1899}"
+        }
+      },
+      "name": "Cadastrar livro"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/livros/{{livroId}}",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "PUT",
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\"titulo\":\"Dom Casmurro\",\"autor\":\"Machado de Assis\",\"ano\":1899}"
+        }
+      },
+      "name": "Atualizar livro"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/livros/{{livroId}}",
+        "header": [],
+        "method": "DELETE"
+      },
+      "name": "Excluir livro"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/emprestimos",
+        "header": [],
+        "method": "GET"
+      },
+      "name": "Listar empréstimos"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/emprestimos/{{emprestimoId}}",
+        "header": [],
+        "method": "GET"
+      },
+      "name": "Buscar empréstimo"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/emprestimos",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "body": {
+          "mode": "raw",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          },
+          "raw": "{\"livroId\":{{livroId}},\"nomeLeitor\":\"João\"}"
+        }
+      },
+      "name": "Registrar empréstimo"
+    },
+    {
+      "request": {
+        "url": "{{baseUrl}}/api/emprestimos/{{emprestimoId}}/devolucao",
+        "header": [],
+        "method": "PUT"
+      },
+      "name": "Devolver livro"
+    }
+  ]
+}
